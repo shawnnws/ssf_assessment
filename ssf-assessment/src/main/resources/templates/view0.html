@@ -9,10 +9,9 @@
 		<title>Login</title>
 	</head>
 	<body>
+		<form method="POST" action="/login" data-th-object="${user}", enctype="application/x-www-form-urlencoded">
 
 		<h2>Please Login</h2>
-
-		<form data-th-action="@{/login}" data-th-object="${user}" method="POST">
 
 		<table>
 			<tr>
@@ -20,31 +19,45 @@
 					<label for="username">Username:</label> 
 				</td>
 				<td>
-					<input type="text" data-th-field="*{username}" size="30" 
-							placeholder="Please type in your username" >
-
-					<span class = "error" data-th-if="${#fields.hasErrors('username')}" data-th-errors = "*{username}" style="color: red"></span>
-
+					<input type="text" id="username" size="30" 
+							placeholder="Please type in your username" data-th-field="*{username}">
 				</td>
+				<div data-th-if="${#fields.hasErrors('username')}">
+					<span data-th-errors="*{username}" data-th-errorclass="error"></span>
+				</div>
 			</tr>
 			<tr>
 				<td>
 					<label for="password">Password:</label>
 				</td>
 				<td>
-					<input type="password" data-th-field="*{password}" size="30" 
-							placeholder="Please type in your password">
-
-					<span class = "error" data-th-if="${#fields.hasErrors('password')}" data-th-errors = "*{password}" style="color: red"></span>
+					<input type="password" id="password" size="30" 
+							placeholder="Please type in your password" data-th-field="*{password}">
 				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<button>Login</button>
-				</td>
+				<div data-th-if="${#fields.hasErrors('password')}">
+					<span data-th-errors="*{password}" data-th-errorclass="error"></span>
+				</div>
 			</tr>
 		</table>
-		
+		<table data-th-if="${captcha != null}">
+			<tr>
+				<p id="captchaQuestion" data-th-text="${captcha.question}"></p>
+			</tr>
+			<tr>
+				<input type="text" id="captchaResponse" size="30" data-th-field="*{captchaResponse}"
+					   placeholder="Please type in your answer">
+			</tr>
+		</table>
+		<table>
+			<tr>
+			<button class="right-align" type="submit">Login</button>
+			<div data-th-unless="${null == error}">
+				<div>Error</div>
+				<code class="error" data-th-text="${error}"></code>
+			</div>
+			</tr>
+		</table>
+
+		</form>
 	</body>
 </html>

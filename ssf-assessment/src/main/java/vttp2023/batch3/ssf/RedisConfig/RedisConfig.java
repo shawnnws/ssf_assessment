@@ -1,4 +1,4 @@
-package vttp2023.batch3.ssf.config;
+package vttp2023.batch3.ssf.RedisConfig;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -11,13 +11,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-
-/*
- *  This class is to set up the connection to redis database by creating a redis template
- *  This will allow us to establish a connection to redis before we can send our data
- *  Syntax is pretty much the same, just need to configure Host Name, Port Number, User and Password
- *  Different database will have different syntax 
- */
 
 
 @Configuration
