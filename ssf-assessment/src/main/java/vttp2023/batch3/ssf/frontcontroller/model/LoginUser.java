@@ -6,11 +6,11 @@ import jakarta.validation.constraints.NotNull;
 
 public class LoginUser {
     
-    @Min(value = 2, message = "Username must be more than 2 characters")
+    @Min(value = 3, message = "Username must be more than 2 characters")
     @NotNull(message = "Username cannot be empty")
     private String username;
 
-    @Min(value = 2, message = "Password must be more than 2 characters")
+    @Min(value = 3, message = "Password must be more than 2 characters")
     @NotNull(message = "Password cannot be empty")
     private String password;
 

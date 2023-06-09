@@ -30,9 +30,6 @@ public class ProtectedController {
     }
 
     public String getCurrentUserName(HttpSession session) {
-        /**
-         * Gets the username from the HttpSession
-         */
         return (String) session.getAttribute("currentUsername");
     }
 }

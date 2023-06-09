@@ -39,6 +39,7 @@ public class FrontController {
 	public String loginUser(Model model, HttpSession sess, @Valid LoginUser user, BindingResult bindings) {
 		String username = user.getUsername();
 		String password = user.getPassword();
+		
 		if (!LoginUser.validUsername(username) || !LoginUser.validPassword(password)) {
 			if (!LoginUser.validUsername(username)) {
 				model.addAttribute("usernameError", "Username should be at least 2 characters");
@@ -57,8 +58,6 @@ public class FrontController {
 			System.out.println("User Answer: " + user.getCaptchaAnswer());
 		}
         boolean captchaIsCorrect = Captcha.captchaCorrectAnswer(previousCaptcha, user.getCaptchaAnswer());
-        String errorMsg;
-        boolean userIsBanned = authenticationService.isLocked(username);
 
 		if (!captchaIsCorrect) {
             UserLoginState newAuthState = authenticationService.updateUserAsIncorrectCaptcha(username);
