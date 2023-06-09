@@ -117,7 +117,7 @@ public class FrontController {
 		 * Refreshes the 
 		 */
         LoginUser newUser = new LoginUser();
-        model.addAttribute("user", newUser);
+        model.addAttribute("loginuser", newUser);
     }
 	
 	public void refreshCaptcha(Model model, HttpSession sess, String username) {
