@@ -3,15 +3,14 @@ package vttp2023.batch3.ssf.frontcontroller.model;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class LoginUser {
     
-    @Min(value = 3, message = "Username must be more than 2 characters")
-    @NotNull(message = "Username cannot be empty")
+    @Size(min = 2, message = "Username should be at least 2 characters long")
     private String username;
 
-    @Min(value = 3, message = "Password must be more than 2 characters")
-    @NotNull(message = "Password cannot be empty")
+    @Size(min = 2, message = "Password should be at least 2 characters long")
     private String password;
 
     @NotEmpty
