@@ -31,7 +31,7 @@ public class FrontController {
 		 * Renders the login page (view0) to the user
 		 */
 		LoginUser newUser = new LoginUser();
-        model.addAttribute("loginuser", newUser);
+        model.addAttribute("user", newUser);
 		return "view0";
 	}
 
@@ -117,7 +117,7 @@ public class FrontController {
 		 * Refreshes the 
 		 */
         LoginUser newUser = new LoginUser();
-        model.addAttribute("loginuser", newUser);
+        model.addAttribute("user", newUser);
     }
 	
 	public void refreshCaptcha(Model model, HttpSession sess, String username) {
