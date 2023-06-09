@@ -31,7 +31,7 @@ public class FrontController {
 		 * Renders the login page (view0) to the user
 		 */
 		LoginUser newUser = new LoginUser();
-        model.addAttribute("user", newUser);
+        model.addAttribute("loginuser", newUser);
 		return "view0";
 	}
 
@@ -39,7 +39,7 @@ public class FrontController {
 	public String loginUser(Model model, HttpSession sess, @Valid LoginUser user, BindingResult bindings) {
 		String username = user.getUsername();
 		String password = user.getPassword();
-		
+
 		if (!LoginUser.validUsername(username) || !LoginUser.validPassword(password)) {
 			if (!LoginUser.validUsername(username)) {
 				model.addAttribute("usernameError", "Username should be at least 2 characters");
